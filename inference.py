@@ -46,7 +46,7 @@ if __name__ == "__main__":
     path = 'pretrain_models/final.pth'
     model = Infer(path)
 
-    img = cv2.imread('')
+    img = cv2.imread('assets/zy.png')
 
     img_h,img_w,_ = img.shape 
     n_h,n_w = img_h // 8 * 8,img_w // 8 * 8
