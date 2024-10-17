@@ -44,9 +44,9 @@ class Infer:
 
 if __name__ == "__main__":
 
-    path = 'pretrain_models/final.pth'
+    path = 'final.pth'
     model = Infer(path)
-    img = cv2.imread('assets/gdg.png')
+    img = cv2.imread('gdg.png')
 
     img_h,img_w,_ = img.shape 
     n_h,n_w = img_h // 8 * 8,img_w // 8 * 8
@@ -54,6 +54,7 @@ if __name__ == "__main__":
 
     begin = time.time()
     oup = model.run(img)
+    print(oup.shape)
     end = time.time()
     print('time:',end-begin)
     cv2.imwrite('output.png',oup)
