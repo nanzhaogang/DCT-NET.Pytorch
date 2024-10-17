@@ -5,7 +5,6 @@ import mindspore
 import mindspore.ops as ops
 import mindspore.nn as nn
 from mindspore import context
-from mindspore.amp import auto_mixed_precision
 
 context.set_context(mode=context.GRAPH_MODE, jit_config={"jit_level": "O2"})
 # context.set_context(mode=context.GRAPH_MODE)
@@ -109,7 +108,6 @@ class Infer:
 
     def run(self,img):
         inp = self.preprocess(img)
-        self.net = auto_mixed_precision(self.net, 'O2')
         xg = self.net(inp)
         oup = self.postprocess(xg[0])
         return oup
