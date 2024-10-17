@@ -7,7 +7,7 @@ import mindspore.nn as nn
 from mindspore import context
 from mindspore.amp import auto_mixed_precision
 
-# context.set_context(mode=context.GRAPH_MODE, jit_config={"jit_level": "O2"})
+context.set_context(mode=context.GRAPH_MODE, jit_config={"jit_level": "O2"})
 # context.set_context(mode=context.GRAPH_MODE)
 
 class ResidualBlock(nn.Cell):
