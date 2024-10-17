@@ -6,7 +6,7 @@ import mindspore.ops as ops
 import mindspore.nn as nn
 from mindspore import context
 
-context.set_context(mode=context.GRAPH_MODE, jit_config={"jit_level": "O2"})
+context.set_context(mode=context.GRAPH_MODE, device_target="Ascend", jit_config={"jit_level": "O2"})
 # context.set_context(mode=context.GRAPH_MODE)
 
 class ResidualBlock(nn.Cell):
