@@ -1,7 +1,8 @@
 import numpy as np
 import os 
 import cv2
-import torch 
+import torch
+import time
 from model.Pix2PixModule.model import Generator
 from utils.utils import convert_img
 
@@ -45,14 +46,16 @@ if __name__ == "__main__":
 
     path = 'pretrain_models/final.pth'
     model = Infer(path)
-
-    img = cv2.imread('assets/zy.png')
+    img = cv2.imread('assets/gdg.png')
 
     img_h,img_w,_ = img.shape 
     n_h,n_w = img_h // 8 * 8,img_w // 8 * 8
     img = cv2.resize(img,(n_w,n_h))
 
+    begin = time.time()
     oup = model.run(img)
+    end = time.time()
+    print('time:',end-begin)
     cv2.imwrite('output.png',oup)
      
 
